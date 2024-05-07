@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "name": "weatherapi",
+  "version": "1.0.0",
+  "description": "A simple weather app that uses APIs to determine the user’s location and then fetch their local weather data.",
+  "main": "scripts.mjs",
+  "type": "module",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
