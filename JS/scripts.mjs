@@ -1,9 +1,9 @@
 // import { WEATHER_APP_API_KEY } from "./config.mjs";
 const queryString = window.location.search;
 
-// const urlParams = new URLSearchParams(queryString);
+const urlParams = new URLSearchParams(queryString);
 
-const WEATHER_APP_API_KEY = "66a27163cbd6278630ecb753f9932ef8";
+let WEATHER_APP_API_KEY = urlParams.get('key');
 
 const iconImg = document.getElementById('weather-icon');
 const loc = document.querySelector('#location');
