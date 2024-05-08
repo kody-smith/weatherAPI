@@ -18,20 +18,28 @@
 <body>
     <div class="container">
         <h1>Current Weather</h1>
-        <img src="" alt="" srcset="" id="weather-icon">
-        <div id="location">Unable to Fetch Weather</div>
-        <div class="desc">No Information Available.</div>
-        <div class="weather">
-            <div class="c">Error</div>
-            <div class="circle"></div>
-            <div class="f">Error</div>
-        </div>
-        <div class="info">
-            <h4>Sunrise: <span class="sunrise">No Information Available</span></h4>
-            <h4>Sunset: <span class="sunset">No Information Available</span></h4>
+        <div class="current-weather">
+            <img src="" alt="" srcset="" id="weather-icon">
+            <div id="location">Unable to Fetch Weather</div>
+            <div class="desc">No Information Available.</div>
+            <div class="weather">
+                <div class="c">Error</div>
+                <div class="circle"></div>
+                <div class="f">Error</div>
+            </div>
+            <div class="info">
+                <h4>Sunrise: <span class="sunrise">No Information Available</span></h4>
+                <h4>Sunset: <span class="sunset">No Information Available</span></h4>
+            </div>
         </div>
         <div class="forecast-container">
-            <h1 class="forecast-heading">24 Hour Forecast</h1>
+            <div id="loadingIndicator" style="display: none;"></div>
+            <form id="forecastSelect">
+                <input type="radio" id="twentyFourHr" name="forecast-type" value="24 Hour" checked>
+                <label for="twentyFourHr">24 Hour Forecast</label>
+                <input type="radio" id="fourtyEightHr" name="forecast-type" value="48 Hour">
+                <label for="fourtyEightHr">48 Hour Forecast</label>
+            </form>
             <ul id="forecastList"></ul>
         </div>
 

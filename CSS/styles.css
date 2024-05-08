@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background: rgb(251, 242, 133);
+    background: rgb(113, 127, 230);
     background: radial-gradient(
       circle,
       rgba(125, 128, 211, 0.6),
@@ -42,8 +42,61 @@ width: 15px;
 margin: 0 15px;
 }
 
+.current-weather {
+    text-align: center;
+    padding: 3rem 5rem 3rem 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: 2px solid #000;
+    border-radius: 10%;
+    background: rgb(220, 218, 218);
+}
+
 .forecast-container {
-    margin-bottom:8rem;
+    max-width: 95%;
+    margin: auto auto 8rem auto;
+    align-items: center;
+    text-align: center;
+}
+
+#forecastSelect {
+    margin-top: 4rem;
+    padding: 4rem;
+    font-size: 1.5rem;
+    border-top: 1px solid #000;
+}
+
+input[type="radio"] {
+    appearance: none;
+}
+
+label {
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid #000;
+    border-radius: 5px; /* Rounded corners for the label */
+    display: inline-block;
+    background: rgb(220, 218, 218);
+    transition: background .5s ease;
+}
+
+label:hover {
+    box-shadow: inset .5px .5px 2px #000;
+    background-color: rgb(151, 151, 151);
+}
+
+input[type="radio"]:checked + label {
+    box-shadow: inset .5px .5px 2px #000;
+    background-color: rgb(151, 151, 151);
+}
+
+
+#loadingIndicator {
+    text-align: center;
+    margin: 20px;
+    font-size: 1.5rem;
 }
 
 .forecast-heading {
@@ -54,7 +107,10 @@ margin: 0 15px;
 
 #forecastList {
     list-style-type: none;
-    margin-top: 2em;
+    /* margin-top: 2em; */
+    align-items: center;
+    text-align: center;
+    padding: 0;
     /* box-shadow: 2px 2px rgba(0, 0, 0, 0.5); */
 }
 
@@ -62,8 +118,11 @@ margin: 0 15px;
     min-width: 175px;
     display: inline-block;
     text-align: center;
+    margin: .5em;
     padding: 2em;
     border: solid 1.5px #000;
+    border-radius: 10%;
+    background:rgb(220, 218, 218);
 }
 
 #forecast-desc {
