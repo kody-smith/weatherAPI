@@ -3,7 +3,7 @@ const queryString = window.location.search;
 
 const urlParams = new URLSearchParams(queryString);
 
-const WEATHER_APP_API_KEY = urlParams.get('WEATHER_APP_API_KEY');
+const WEATHER_APP_API_KEY = urlParams.get('key');
 
 const iconImg = document.getElementById('weather-icon');
 const loc = document.querySelector('#location');
