@@ -30,16 +30,16 @@
     font-weight: 800;
 }
 .desc {
-font-size: 1.25rem;
-text-transform: capitalize;
+    font-size: 1.25rem;
+    text-transform: capitalize;
 }
 
 .circle {
-background-color: black;
-border-radius: 50px;
-height: 15px;
-width: 15px;
-margin: 0 15px;
+    background-color: black;
+    border-radius: 50px;
+    height: 15px;
+    width: 15px;
+    margin: 0 15px;
 }
 
 .current-weather {
@@ -50,7 +50,7 @@ margin: 0 15px;
     justify-content: center;
     flex-direction: column;
     border: 2px solid #000;
-    border-radius: 10%;
+    border-radius: 25px;
     background: rgb(220, 218, 218);
 }
 
