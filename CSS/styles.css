@@ -1,10 +1,4 @@
-.container {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+html {
     background: rgb(113, 127, 230);
     background: radial-gradient(
       circle,
@@ -12,6 +6,16 @@
       rgba(107, 105, 235, 0.8),
       rgb(113, 127, 230)
     );
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
 }
 
 .info {

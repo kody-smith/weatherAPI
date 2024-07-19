@@ -1,9 +1,4 @@
 import { WEATHER_APP_API_KEY } from "./config.mjs";
-// const queryString = window.location.search;
-
-// const urlParams = new URLSearchParams(queryString);
-
-// let WEATHER_APP_API_KEY = urlParams.get('key');
 
 const iconImg = document.getElementById('weather-icon');
 const loc = document.querySelector('#location');
@@ -13,14 +8,19 @@ const desc = document.querySelector('.desc');
 const sunriseDOM = document.querySelector('.sunrise');
 const sunsetDOM = document.querySelector('.sunset');
 
-let lon, lat;
+// Default location (New York City)
+const DEFAULT_LAT = 40.7128;
+const DEFAULT_LON = -74.0060;
 
-function fetchWeatherData() {
+let lat = DEFAULT_LAT;
+let lon = DEFAULT_LON;
+
+function fetchWeatherData(latitude, longitude) {
     showLoadingIndicator(true);
     const delayTime = 500;
     setTimeout(() => {
-        const currentWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${WEATHER_APP_API_KEY}&units=metric`;
-        const forecastWeather = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=21&appid=${WEATHER_APP_API_KEY}&units=metric`;
+        const currentWeather = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${WEATHER_APP_API_KEY}&units=metric`;
+        const forecastWeather = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&cnt=21&appid=${WEATHER_APP_API_KEY}&units=metric`;
 
         // Fetch current weather data
         fetch(currentWeather)
@@ -36,7 +36,7 @@ function fetchWeatherData() {
                 updateForecastDisplay(data);
                 showLoadingIndicator(false);
             });
-    },delayTime);
+    }, delayTime);
 }
 
 function showLoadingIndicator(show) {
@@ -102,12 +102,19 @@ function appendForecastItem(item) {
 }
 
 window.addEventListener('load', () => {
+    // Fetch weather data for default location (New York) immediately
+    fetchWeatherData(DEFAULT_LAT, DEFAULT_LON);
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
             lon = position.coords.longitude;
             lat = position.coords.latitude;
-            fetchWeatherData();
+            fetchWeatherData(lat, lon);
+        }, error => {
+            // If there's an error, the default location data has already been loaded
         });
+    } else {
+        // If geolocation is not supported, the default location data has already been loaded
     }
 
     const twentyFourHrBtn = document.getElementById('twentyFourHr');
@@ -116,14 +123,14 @@ window.addEventListener('load', () => {
     twentyFourHrBtn.addEventListener('change', () => {
         if (twentyFourHrBtn.checked) {
             document.getElementById("forecastList").innerHTML = "";
-            fetchWeatherData();
-        };
+            fetchWeatherData(lat, lon);
+        }
     });
 
     fourtyEightHrBtn.addEventListener('change', () => {
         if (fourtyEightHrBtn.checked) {
             document.getElementById("forecastList").innerHTML = "";
-            fetchWeatherData();
-        };
+            fetchWeatherData(lat, lon);
+        }
     });
 });
